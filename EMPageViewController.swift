@@ -62,8 +62,8 @@ class EMPageViewController: UIViewController, UIScrollViewDelegate {
     }
 
     // This is private because some properties cannot be changed publicly, or else it will break things
-    private(set) lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
+    private(set) lazy var scrollView: CustomScrollView2 = {
+        let scrollView = CustomScrollView2()
         scrollView.pagingEnabled = true
         scrollView.scrollsToTop = false
         scrollView.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleLeftMargin]
@@ -73,6 +73,7 @@ class EMPageViewController: UIViewController, UIScrollViewDelegate {
         scrollView.translatesAutoresizingMaskIntoConstraints = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.delaysContentTouches = false
         return scrollView
     }()
     
